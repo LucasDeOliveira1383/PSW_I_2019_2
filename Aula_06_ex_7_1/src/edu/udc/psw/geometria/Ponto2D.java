@@ -63,4 +63,14 @@ public class Ponto2D {
 		
 		return true;
 	}
+
+	public String ObjectToString() {
+		return super.toString();
+	}
+
+	@Override
+	public String toString() {
+		return "(" + x + "; " + y + ")";
+	}
+
 }

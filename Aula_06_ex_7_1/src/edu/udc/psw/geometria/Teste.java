@@ -11,8 +11,8 @@ public class Teste {
 		System.out.println(p1);
 		System.out.println(p2);
 		
-		System.out.printf("(%d, %d)\n", p1.getX(), p1.getY());
-		System.out.printf("(%d, %d)\n", p2.getX(), p2.getY());
+		System.out.printf("{%d, %d}\n", p1.getX(), p1.getY());
+		System.out.printf("{%d, %d}\n", p2.getX(), p2.getY());
 		
 		System.out.println("p1 está no " + p1.quadrante());
 		System.out.println("p2 está no " + p2.quadrante());
@@ -27,18 +27,18 @@ public class Teste {
 				(p1.equals(p3) ? "iguais" : "diferentes"));
 		System.out.println("p1 e p4 sao " + 
 				(p1.equals(p4) ? "iguais" : "diferentes"));
-		System.out.println(p1);
+		System.out.println(p1.ObjectToString());
 		System.out.println(p3);
 		p3 = p1;
 		System.out.println("p1 e p3 sao " + 
 				(p1.equals(p3) ? "iguais" : "diferentes"));
-		System.out.println(p1);
-		System.out.println(p3);
+		System.out.println(p1.ObjectToString());
+		System.out.println(p3.ObjectToString());
 		p3.setX(2);
 		System.out.println("p1 e p3 sao " + 
 				(p1.equals(p3) ? "iguais" : "diferentes"));
-		System.out.println(p1);
-		System.out.println(p3);
+		System.out.println(p1.ObjectToString());
+		System.out.println(p3.ObjectToString());
 	}
 
 }
