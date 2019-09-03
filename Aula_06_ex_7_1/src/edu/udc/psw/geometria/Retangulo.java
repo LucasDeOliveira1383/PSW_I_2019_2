@@ -1,17 +1,18 @@
 package edu.udc.psw.geometria;
 
-public class Linha extends FormaGeometrica {
+public class Retangulo extends FormaGeometrica {
 	private Ponto2D a;
 	private Ponto2D b;
 	
-	public Linha() {
-		a = new Ponto2D();
-		b = new Ponto2D();
-	}
-	
-	public Linha(Ponto2D a, Ponto2D b) {
+	public Retangulo(Ponto2D a, Ponto2D b) {
+		super();
 		this.a = new Ponto2D(a.getX(), a.getY());
 		this.b = new Ponto2D(b.getX(), b.getY());
+	}
+	
+	public Retangulo() {
+		this.a = new Ponto2D();
+		this.b = new Ponto2D();
 	}
 
 	public Ponto2D getA() {
@@ -29,7 +30,7 @@ public class Linha extends FormaGeometrica {
 	public void setB(Ponto2D b) {
 		this.b = new Ponto2D(b.getX(), b.getY());
 	}
-	
+
 	public Ponto2D centro() {
 		return new Ponto2D((a.getX()+b.getX())/2,
 				(a.getY()+b.getY())/2);
@@ -43,7 +44,7 @@ public class Linha extends FormaGeometrica {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Linha other = (Linha) obj;
+		Retangulo other = (Retangulo) obj;
 		if (a == null) {
 			if (other.a != null)
 				return false;
@@ -59,17 +60,17 @@ public class Linha extends FormaGeometrica {
 
 	@Override
 	public String toString() {
-		return "[" + a + "; " + b + "]";
+		return "{" + a + "; " + b + "}";
 	}
 
 	@Override
 	public float perimetro() {
-		return a.distancia(b);
+		return 2 * altura() + 2 * largura();
 	}
 
 	@Override
 	public float area() {
-		return 0;
+		return altura() * largura();
 	}
 
 	@Override
@@ -81,6 +82,5 @@ public class Linha extends FormaGeometrica {
 	public float altura() {
 		return Math.abs(a.getY() - b.getY());
 	}
-	
 	
 }

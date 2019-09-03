@@ -1,6 +1,6 @@
 package edu.udc.psw.geometria;
 
-public class Ponto2D {
+public class Ponto2D extends FormaGeometrica{
 	private int x;
 	private int y;
 	
@@ -47,6 +47,10 @@ public class Ponto2D {
 				(y-pt.y)*(y-pt.y));
 	}
 	
+	public Ponto2D centro() {
+		return new Ponto2D(x, y);
+	}
+	
 	@Override
 	public boolean equals(Object obj) {
 		if(obj == null)
@@ -64,13 +68,29 @@ public class Ponto2D {
 		return true;
 	}
 
-	public String ObjectToString() {
-		return super.toString();
-	}
-
 	@Override
 	public String toString() {
 		return "(" + x + "; " + y + ")";
+	}
+
+	@Override
+	public float perimetro() {
+		return 0;
+	}
+
+	@Override
+	public float area() {
+		return 0;
+	}
+
+	@Override
+	public float largura() {
+		return 0;
+	}
+
+	@Override
+	public float altura() {
+		return 0;
 	}
 
 }
