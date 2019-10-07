@@ -59,7 +59,8 @@ public class Linha extends FormaGeometrica {
 
 	@Override
 	public String toString() {
-		return "[" + a + "; " + b + "]";
+		return String.format("[%s; %s]@%x", a, b, System.identityHashCode(this));
+		//return "[" + a + "; " + b + "]";
 	}
 
 	@Override
