@@ -1,10 +1,10 @@
 package edu.udc.psw.colecao;
 
-public class ListaEncadeada {
+public class ListaEncadeada<TIPO> {
 	private class NoLista {
 		NoLista proximo;
 		NoLista anterior;
-		Object dado;
+		TIPO dado;
 		
 		NoLista() {
 			this.proximo = null;
@@ -12,20 +12,20 @@ public class ListaEncadeada {
 			this.dado = null;
 		}
 		
-		NoLista(Object obj) {
+		NoLista(TIPO obj) {
 			this.proximo = null;
 			this.anterior = null;
 			this.dado = obj;
 		}
 		
-		NoLista(NoLista proximo, NoLista anterior, Object obj) {
+		NoLista(NoLista proximo, NoLista anterior, TIPO obj) {
 			this.proximo = proximo;
 			this.anterior = anterior;
 			this.dado = obj;
 		}
 	}
 
-	private class Iterador implements IteradorAbstrato {
+	private class Iterador implements IteradorAbstrato<TIPO> {
 		private NoLista noAtual;
 		
 		Iterador(NoLista no) {
@@ -49,7 +49,7 @@ public class ListaEncadeada {
 		}
 
 		@Override
-		public Object dadoAtual() {
+		public TIPO dadoAtual() {
 			if(noAtual == null)
 				return null;
 			return noAtual.dado;
@@ -89,7 +89,7 @@ public class ListaEncadeada {
 		return new Iterador(fim);
 	}
 
-	public boolean inserir(Object obj, int pos) {
+	public boolean inserir(TIPO obj, int pos) {
 		NoLista novo = new NoLista(obj);
 
 		if (isVazia() && pos == 0) { // lista vazia
@@ -167,7 +167,7 @@ public class ListaEncadeada {
 		return false;
 	}
 
-	public boolean remover(Object obj) {
+	public boolean remover(TIPO obj) {
 		NoLista iterador = inicio;
 		boolean removido = false;
 		while (iterador != null) {
@@ -210,7 +210,7 @@ public class ListaEncadeada {
 		return removido;
 	}
 
-	public Object pesquisar(int pos) {
+	public TIPO pesquisar(int pos) {
 		if(pos < 0 || pos >= tamanho)
 			return null;
 		

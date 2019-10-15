@@ -1,12 +1,16 @@
 package edu.udc.psw.aplicacao;
 
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.List;
+
 import edu.udc.psw.colecao.*;
 import edu.udc.psw.geometria.Ponto2D;
 
 public class Aplicacao {
 
 	public static void main(String[] args) {
-		ListaEncadeada lista = new ListaEncadeada();
+		ListaEncadeada<Ponto2D> lista = new ListaEncadeada<Ponto2D>();
 		
 		
 		Ponto2D ponto = new Ponto2D(5,5);
@@ -33,11 +37,18 @@ public class Aplicacao {
 			lista.inserir(ponto, 0);
 		}
 		
-		IteradorAbstrato it = lista.getIteradorInicio();
+		IteradorAbstrato<Ponto2D> it = lista.getIteradorInicio();
 		do {
 			System.out.println(it.dadoAtual());
 		} while(it.proximo());
 		
+		List<Ponto2D> l = new LinkedList<Ponto2D>();
+		l.add(new Ponto2D(1,1));
+		l.add(new Ponto2D(1,2));
+		l.add(new Ponto2D(1,3));
+		for(Ponto2D p : l)
+			System.out.println(p);
+			
 	}
 
 }
